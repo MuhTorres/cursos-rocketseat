@@ -1,18 +1,15 @@
 version: '3'
 services:
     db:
-        image: mongo:3.6
-        container_name: mongodb
-        ports:
-            - 27017:27017
+        image: mongo:3.4
     server:
-        image: node:12
+        image: node:15.0.1-alpine3.11
         env_file: 
-            - ./.env
+            - .env
         ports:
             - ${PORT}:${PORT}
-        command: bash -c "npm i && node server"
+        command: ash -c "cd server/ && npm i && node server"
         volumes: 
-            - ./:/server
+            - .:/server
         depends_on: 
             - db
