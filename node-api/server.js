@@ -4,7 +4,7 @@ const express = require('express'),
  app = express();
 
 // Iniciando db
-mongoose.connect(process.env.DB_STR, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_STR, { useNewUrlParser: true, useUnifiedTopology: true });
 
 requireDir('./src/models');
 
