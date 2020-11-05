@@ -1,10 +1,12 @@
 const express = require('express'),
  mongoose = require('mongoose'),
- requireDir = require('require-dir');
+ requireDir = require('require-dir'),
+ cors = require('cors');
  
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 // Iniciando db
 mongoose.connect(process.env.DB_STR, { 
     useNewUrlParser: true, 
