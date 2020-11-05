@@ -14,7 +14,9 @@ mongoose.connect(process.env.DB_STR, {
 requireDir('./src/models/');
 
 app.get('/', (req, res) => res.send("It is working!"));
-app.use('/api', require('./src/routes'));
+
+const routes = require('./src/routes');
+app.use('/api', routes);
 
 app.listen(process.env.PORT);
 console.log(`Connection State: ${mongoose.connection.readyState}`);
