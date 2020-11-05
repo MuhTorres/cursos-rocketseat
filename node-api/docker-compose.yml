@@ -10,7 +10,7 @@ services:
             - .env
         ports:
             - ${PORT}:${PORT}
-        command: ash -c "cd server/ && npm i && node server"
+        command: ash -c "cd server/ && npm i && npm run dev"
         volumes: 
             - .:/server
         depends_on: 
